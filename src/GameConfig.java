@@ -5,11 +5,10 @@ import java.util.*;
      private final int Max_Attempts = 7;
      private final int Max_Hints = 3;
      private int targetNumber;
-     public  GameConfig(){
-      Random r  = new Random();
-      this.targetNumber = r.nextInt(MAX - MIN + 1) + MIN;
+     public  GameConfig() {
+         Random r = new Random();
+         this.targetNumber = r.nextInt(MAX - MIN + 1) + MIN;
      }
-
   public int getTargetNumber() {
    return targetNumber;
   }
