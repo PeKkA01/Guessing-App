@@ -5,13 +5,17 @@ public class GuessingApp {
 
     public static void main(String[] args) {
 
-        System.out.println("Welcome to the Guessing App");
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter player name: ");
+        String playerName = sc.nextLine();
+
+        System.out.println("\nWelcome to the Guessing App");
         System.out.println("============================");
 
         GameConfig gcon = new GameConfig();
         gcon.showRule();
 
-        Scanner sc = new Scanner(System.in);
         int attempt = 0;
         int hintsUsed = 0;
         boolean guessedCorrect = false;
@@ -40,7 +44,6 @@ public class GuessingApp {
                     System.out.println("Too HIGH! Try lower.");
                 }
 
-
                 if (!guessedCorrect && hintsUsed < gcon.getMax_Hints()) {
                     hintsUsed++;
                     String hint = HintService.generation(
@@ -58,6 +61,10 @@ public class GuessingApp {
             System.out.println("Correct number was: "
                     + gcon.getTargetNumber());
         }
+
+        StorageService.saveResult(playerName, attempt, guessedCorrect);
+
+        StorageService.showResults();
 
         sc.close();
     }
