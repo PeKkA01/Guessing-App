@@ -1,1 +1,2 @@
 Player: Akshay | Attempts: 7 | Result: WIN
+Player: Vishal | Attempts: 7 | Result: LOSE
